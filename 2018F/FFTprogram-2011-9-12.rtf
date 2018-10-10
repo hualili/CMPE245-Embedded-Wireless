@@ -1,0 +1,218 @@
+{\rtf1\ansi\deff3\adeflang1025
+{\fonttbl{\f0\froman\fprq2\fcharset0 Times New Roman;}{\f1\froman\fprq2\fcharset2 Symbol;}{\f2\fswiss\fprq2\fcharset0 Arial;}{\f3\froman\fprq2\fcharset0 Liberation Serif{\*\falt Times New Roman};}{\f4\froman\fprq0\fcharset128 Times New Roman;}{\f5\fswiss\fprq0\fcharset128 Arial;}{\f6\fnil\fprq0\fcharset128 OpenSymbol{\*\falt Arial Unicode MS};}{\f7\fnil\fprq0\fcharset128 DejaVu Sans;}{\f8\fnil\fprq0\fcharset128 Times New Roman;}{\f9\fnil\fprq0\fcharset128 Arial;}{\f10\fswiss\fprq0\fcharset128 Times New Roman;}{\f11\fnil\fprq0\fcharset128 SimSun;}}
+{\colortbl;\red0\green0\blue0;\red128\green128\blue128;}
+{\stylesheet{\s0\snext0\nowidctlpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf0\kerning1\dbch\af12\langfe2052\dbch\af13\afs24\alang1081\loch\f3\fs24\lang1033 Normal;}
+{\*\cs15\snext15\cf1\dbch\af6\langfe1033\dbch\af6\afs24\loch\f6\fs24\lang1033 Bullets;}
+{\s16\sbasedon21\snext17\ql\nowidctlpar\sb240\sa120\keepn\ltrpar\cf1\kerning1\dbch\af9\langfe1033\dbch\af11\afs28\loch\f5\fs28\lang1033 Heading;}
+{\s17\sbasedon21\snext17\sl288\slmult1\ql\nowidctlpar\sb0\sa120\ltrpar\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\loch\f4\fs24\lang1033 Text Body;}
+{\s18\sbasedon17\snext18\sl288\slmult1\ql\nowidctlpar\sb0\sa120\ltrpar\cf1\kerning1\dbch\af8\langfe1033\dbch\af10\afs24\loch\f4\fs24\lang1033 List;}
+{\s19\sbasedon21\snext19\ql\nowidctlpar\sb120\sa120\noline\ltrpar\cf1\i\kerning1\dbch\af7\langfe1033\dbch\af10\afs24\ai\loch\f4\fs24\lang1033 Caption;}
+{\s20\sbasedon21\snext20\ql\nowidctlpar\noline\ltrpar\cf1\kerning1\dbch\af8\langfe1033\dbch\af10\afs24\loch\f4\fs24\lang1033 Index;}
+{\s21\snext21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033 Default;}
+{\s22\sbasedon21\snext22\ql\nowidctlpar\sb120\sa120\ltrpar\cf1\i\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\ai\loch\f4\fs24\lang1033 caption;}
+}{\info{\creatim\yr0\mo0\dy0\hr0\min0}{\revtim\yr0\mo0\dy0\hr0\min0}{\printim\yr0\mo0\dy0\hr0\min0}{\comment LibreOffice}{\vern67241986}}\deftab720\deftab720
+\viewscale100
+{\*\pgdsctbl
+{\pgdsc0\pgdscuse451\pgwsxn12240\pghsxn15840\marglsxn1800\margrsxn1800\margtsxn1440\margbsxn1440\pgdscnxt0 Default Style;}}
+\formshade{\*\pgdscno0}\paperh15840\paperw12240\margl1800\margr1800\margt1440\margb1440\sectd\sbknone\sectunlocked1\pgndec\pgwsxn12240\pghsxn15840\marglsxn1800\margrsxn1800\margtsxn1440\margbsxn1440\ftnbj\ftnstart1\ftnrstcont\ftnnar\aenddoc\aftnrstcont\aftnstart1\aftnnrlc
+\pgndec\pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\i0\b0\langfe2052\alang1025\rtlch \ltrch\loch\lang1033
+/*****************************************************************}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\langfe2052\alang1025\rtlch \ltrch\loch\lang1033
+* Program is for CMPE class use, see Dr. Harry Li's lecture notes for details *}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+* Reference: Digital Signal Processing, by A.V. Oppenhaim;                                * }
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+* fft.c for calculting 4 points input, but you can easily expand this to 2^x inputs; *}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+* : x0.1;             Date: Sept. 2009;                                                               * }
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\langfe2052\alang1025\rtlch \ltrch\loch\lang1033
+******************************************************************/}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+#include <stdio.h>}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+#include <math.h>}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+struct Complex}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\{\tab double a;        //Real Part}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab double b;        //Imaginary Part}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\}          X[5], U, W, T, Tmp;}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033\cf1\alang1025\rtlch \ltrch\loch
+
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+void FFT(void)}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\{}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab int M = 2;}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab int N = pow(2, M);}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033\cf1\alang1025\rtlch \ltrch\loch
+
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab int i = 1, j = 1, k = 1;}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab int LE = 0, LE1 = 0;}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab int IP = 0;}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033\cf1\alang1025\rtlch \ltrch\loch
+
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab for (k = 1; k <= M; k++)}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab \{}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab \tab LE = pow(2, M + 1 - k);}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab \tab LE1 = LE / 2;}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033\cf1\alang1025\rtlch \ltrch\loch
+
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab \tab U.a = 1.0;}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab \tab U.b = 0.0;}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033\cf1\alang1025\rtlch \ltrch\loch
+
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab \tab W.a = cos(M_PI / (double)LE1);}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab \tab W.b = -sin(M_PI/ (double)LE1);}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033\cf1\alang1025\rtlch \ltrch\loch
+
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab \tab for (j = 1; j <= LE1; j++)}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab \tab \{}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab \tab \tab for (i = j; i <= N; i = i + LE)}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab \tab \tab \{}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab \tab \tab \tab IP = i + LE1;}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab \tab \tab \tab T.a = X[i].a + X[IP].a;}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab \tab \tab \tab T.b = X[i].b + X[IP].b;}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab \tab \tab \tab Tmp.a = X[i].a - X[IP].a;}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab \tab \tab \tab Tmp.b = X[i].b - X[IP].b;}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab \tab \tab \tab X[IP].a = (Tmp.a * U.a) - (Tmp.b * U.b);}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab \tab \tab \tab X[IP].b = (Tmp.a * U.b) + (Tmp.b * U.a);}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab \tab \tab \tab X[i].a = T.a;}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab \tab \tab \tab X[i].b = T.b;}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab \tab \tab \}}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab \tab \tab Tmp.a = (U.a * W.a) - (U.b * W.b);}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab \tab \tab Tmp.b = (U.a * W.b) + (U.b * W.a);}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab \tab \tab U.a = Tmp.a;}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab \tab \tab U.b = Tmp.b;}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab \tab \}}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab \}}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033\cf1\alang1025\rtlch \ltrch\loch
+
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab int NV2 = N / 2;}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab int NM1 = N - 1;}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab int K = 0;}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033\cf1\alang1025\rtlch \ltrch\loch
+
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab j = 1;}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab for (i = 1; i <= NM1; i++)}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab \{}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab \tab if (i >= j) goto TAG25;}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab \tab T.a = X[j].a;}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab \tab T.b = X[j].b;}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033\cf1\alang1025\rtlch \ltrch\loch
+
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab \tab X[j].a = X[i].a;}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab \tab X[j].b = X[i].b;}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab \tab X[i].a = T.a;}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab \tab X[i].b = T.b;}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+TAG25:\tab K = NV2;}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+TAG26:\tab if (K >= j) goto TAG30;}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab \tab j = j - K;}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab \tab K = K / 2;}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab \tab goto TAG26;}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+TAG30:\tab j = j + K;}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab \}}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\}}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033\cf1\alang1025\rtlch \ltrch\loch
+
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+int main(void)}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\{}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab float arr[5] = \{0.0, 2.0, 3.0, 4.0, 4.0\};}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab int i;}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab for (i = 0; i < 5; i++)}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab \{}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab \tab X[i].a = arr[i];}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab \tab X[i].b = 0.0;}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab \}}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033\cf1\alang1025\rtlch \ltrch\loch
+
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab printf ("*********Before*********\\n");}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab for (i = 1; i <= 4; i++)}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab \tab printf ("X[%d]:real == %f  imaginary == %f\\n", i, X[i].a, X[i].b);}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab FFT();}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033\cf1\alang1025\rtlch \ltrch\loch
+
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab printf ("\\n\\n**********After*********\\n");}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab for (i = 1; i <= 4; i++)}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab \tab printf ("X[%d]:real == %f  imaginary == %f\\n", i, X[i].a, X[i].b);}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033\cf1\alang1025\rtlch \ltrch\loch
+
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\tab return 0;}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033{\cf1\alang1025\rtlch \ltrch\loch\lang1033
+\}}
+\par \pard\plain \s21\ql\nowidctlpar\ltrpar{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\cf1\kerning1\dbch\af8\langfe1033\dbch\af8\afs24\alang1081\loch\f4\fs24\lang1033\sl276\slmult1\sb0\sa200\rtlch \ltrch\loch
+
+\par }

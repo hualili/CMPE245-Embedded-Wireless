@@ -1,0 +1,49 @@
+Lab 1 Lisa Implementation 
+
+1. Implement LISA processing engine as a stand-alone program to perform the 
+   algorithm verification based on the testing patterns. The LISA algorithm
+   should be able to realize sync extraction from the testing patterns with 
+   1 byte, 2 bytes, ..., 32 bytes mataching capability. The payload of the 
+   data is your_first_name+4_digits_SID
+
+2. Testing patterns for the LISA processing engine are two types:
+   (1) predefined sync field and provided to the class, e.g., the pattern looks 
+       like the following: 
+   
+  0x50 0x51 0x52 0x53 0x54 0x55 0x56 0x57 0x58 0x59 0x5a 0x5b 0x5c 0x5d 0x5e 0x5f
+  0xa0 0xa1 0xa2 0xa3 0xa4 0xa5 0xa6 0xa7 0xa8 0xa9 0xaa 0xab 0xac 0xad 0xae 0xaf
+
+  and 
+
+  0xc0 0x53 0x52 0x53 0x54 0x55 0x56 0x5f 0x58 0x09 0x5a 0x5b 0x5c 0x5d 0x5e 0x5f
+  0x00 0xa1 0xaf 0xa3 0xf4 0xa5 0xa6 0xa7 0xa8 0xa9 0xaa 0xab 0xac 0xad 0xbe 0xaa
+
+   (2) use rand() function to generate a two digits random hex number, then perform 
+       XOR with the the predefined pattern to conduct test. A good implementation 
+       should be able to extract the sync pattern. 
+
+
+3. Implement wired debugging circuit, and then perform the communication test, 
+   bo demonstrate the following data can be correnctly retrived with 1K buffer 
+   implementation, with arbitrary starting location of the sync filed in the 1K
+   buffer, the test data in 1K buffer format: 
+ 
+   arbitrary_length_bits + sync_field(32_bytes) + your_first_name + 4_digits_SID
+ 
+4. Repeat test in 3, but with wireless communication. 
+
+5. The communication protocole for node N_i and N_j are defined as follows: 
+   
+   N_i starts communication with the message defined in 3 (and 4); 
+   N_j continues reading to fill in 1K buffer, and once 1K buffer is filled 
+       N_j starts decoding;
+   N_j once decoding successfully, it sends ACK and self identification message
+       as the same test pattern in 3 (and 4); 
+   N_i performs continued reading to fill in 1K buffer, and once 1K buffer is 
+       filled N_j starts decoding. 
+
+6. Write a IEEE style report and perform in class individual demo with both report
+   and demo board. 
+
+(END) 
+   
